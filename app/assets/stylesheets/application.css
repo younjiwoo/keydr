@@ -13,3 +13,47 @@
  *= require_tree .
  *= require_self
  */
+
+ .game-board {
+   width: 500px;
+   height: 500px;
+   background-color: ivory;
+   position: relative;
+   overflow: hidden;
+ }
+ .column {
+   width: 100px;
+   height: 500px;
+   position: absolute;
+ }
+ .column-d {
+   left: 35px;
+   background-color: rgb(163, 224, 202);
+ }
+ .column-f {
+   left: 145px;
+   background-color: rgb(163, 215, 224);
+ }
+ .column-j {
+   left: 255px;
+   background-color: rgb(231, 181, 242);
+ }
+ .column-k {
+   left: 365px;
+   background-color: rgb(241, 181, 203);
+ }
+ .bar {
+   width: 500px;
+   height: 50px;
+   background-color: gold;
+   position: absolute;
+   top: 400px;
+   opacity: .5;
+   z-index: 10;
+ }
+ .note {
+   width: 100px;
+   height: 10px;
+   background-color: salmon;
+   position: absolute;
+ }
