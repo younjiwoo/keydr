@@ -21,6 +21,7 @@ const PATTERN_D = [1, 3, 4, 8, 9, 11, 13, 17, 18, 19]
 $( document ).ready( function() {
   const BAR = $('.bar')
 
+  // Helper Method.
   function ceilToTopOfElem(el) {
     return el.offset().top
   }
@@ -30,11 +31,10 @@ $( document ).ready( function() {
   function isOverlapping(el) {
     return ceilToBtmOfElem(el) > ceilToTopOfElem(BAR)
   }
-
-  PATTERN_D.forEach( function (sec) {
+  function generateNotes(sec, column) {
     setTimeout( function() {
       const NEW_NOTE = $('<div class="note active" />')
-      $('.column-d').append(NEW_NOTE)
+      $( column ).append(NEW_NOTE)
       NEW_NOTE.animate({
         top: $('.game-board').height() - 50
       }, 4500, 'linear', function() {
@@ -44,26 +44,24 @@ $( document ).ready( function() {
         }, 500, 'linear')
       })
     }, sec * 1000)
-  })
+  }
 
-
-  $( window ).keypress( function (e) {
-    let firstActiveCls = $('.column-d .active').first()
-    if (firstActiveCls.length > 0) {
-      if (e.which === 100 && isOverlapping(firstActiveCls) ) {
-        return alert('yay! you pressed D when the note and the bar overlapped!')
+  function rightKeyPress(column, keyCode) {
+    $( window ).keypress( function (e) {
+      let firstActiveCls = $(`${column} .active`).first()
+      if (firstActiveCls.length > 0) {
+        if (e.which === keyCode && isOverlapping(firstActiveCls) ) {
+          // pulse()
+        }
       }
-    }
-  })
+    })
+  }
 
-  // PATTERN_F.forEach( function (sec) {
-  //   setTimeout(function () {
-  //     const NEW_NOTE = $('<div class="note" />')
-  //     $('.column-f').append(NEW_NOTE)
-  //     NEW_NOTE.animate({
-  //       top: $('.game-board').height()
-  //     }, 5000, 'linear')
-  //   }, sec * 1000)
-  // })
+  // Start Calling Methods.
+  PATTERN_D.forEach( function(sec) {
+    generateNotes(sec, '.column-d')
+  })
+  rightKeyPress('.column-d', 100)
+
 
 })
