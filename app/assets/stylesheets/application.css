@@ -19,7 +19,7 @@
    height: 500px;
    background-color: ivory;
    position: relative;
-   overflow: hidden;
+   /*overflow: hidden;*/
  }
  .column {
    width: 100px;
