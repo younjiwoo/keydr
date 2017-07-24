@@ -19,16 +19,16 @@
    height: 100px;
    background-color: ivory;
    float: right;
-   font-size: 3em;
+   font-size: 2.5em;
    text-align: center;
-   color: salmon;
+   color: #999;
  }
  .game-board {
    width: 500px;
    height: 500px;
    background-color: ivory;
    position: relative;
-   /*overflow: hidden;*/
+   overflow: hidden;
  }
  .column {
    width: 100px;
@@ -66,3 +66,25 @@
    background-color: salmon;
    position: absolute;
  }
+ @keyframes pulse_animation {
+	0% { transform: scale(1); }
+	30% { transform: scale(1.25); }
+	40% { transform: scale(1.4); }
+	50% { transform: scale(1.5); }
+	60% { transform: scale(1.4); }
+	70% { transform: scale(1.25); }
+	80% { transform: scale(1.1); }
+	100% { transform: scale(1); }
+}
+.pulse {
+	animation-name: pulse_animation;
+	animation-duration: 300ms;
+	transform-origin:70% 70%;
+	animation-timing-function: linear;
+}
+.plus {
+  color: #42a1f4;
+}
+.minus {
+  color: #cc282b;
+}

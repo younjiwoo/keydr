@@ -14,13 +14,14 @@
 //= require jquery
 //= require_tree .
 
-const PATTERN_D = [1, 3, 4, 8, 9, 11, 13, 17, 18, 19]
+const PATTERN_D = [0, 3, 4, 8, 9, 11, 13, 17, 18, 19]
 // const PATTERN_F = [2, 4, 5, 6, 10, 13, 14, 15, 18, 20]
 
 
 $( document ).ready( function() {
   const BAR = $('.bar')
-  let score = $('.score-board')
+  let scoreBoard = $('.score-board')
+  let score = $('.score')
 
   // Helper Method.
   function ceilToTopOfElem(el) {
@@ -46,22 +47,32 @@ $( document ).ready( function() {
       })
     }, sec * 1000)
   }
-  function theyOverlap(column, keyCode) {
+  function handleKeypress(column, keyCode) {
     $( window ).keypress( function (e) {
-      let firstActiveCls = $(`${column} .active`).first()
-      if (firstActiveCls.length > 0) {
-        if (e.which === keyCode && isOverlapping(firstActiveCls) ) {
-          return score.html(parseInt(score.html()) + 10)
+      let closestNoteB4Bar = $(`${column} .active`).first()
+      if ( closestNoteB4Bar.length && parseInt(score.html()) > 0 ) {
+        if (e.which === keyCode && isOverlapping(closestNoteB4Bar) ) {
+          score.html(parseInt(score.html()) + 10)
+          score.addClass('pulse plus')
+        } else {
+          score.html(parseInt(score.html()) - 10)
+          score.addClass('pulse minus')
         }
+      } else { // if score is < 0.
+        return score.html('Game Over')
       }
     })
   }
+
+  score[0].addEventListener('webkitAnimationEnd', function() {
+    score.removeClass('pulse plus minus')
+  });
 
   // Start Calling Methods.
   PATTERN_D.forEach( function(sec) {
     generateNotes(sec, '.column-d')
   })
-  theyOverlap('.column-d', 100)
+  handleKeypress('.column-d', 100)
 
 
 })
