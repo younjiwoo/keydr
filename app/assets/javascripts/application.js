@@ -20,6 +20,7 @@ const PATTERN_D = [1, 3, 4, 8, 9, 11, 13, 17, 18, 19]
 
 $( document ).ready( function() {
   const BAR = $('.bar')
+  let score = $('.score-board')
 
   // Helper Method.
   function ceilToTopOfElem(el) {
@@ -45,13 +46,12 @@ $( document ).ready( function() {
       })
     }, sec * 1000)
   }
-
-  function rightKeyPress(column, keyCode) {
+  function theyOverlap(column, keyCode) {
     $( window ).keypress( function (e) {
       let firstActiveCls = $(`${column} .active`).first()
       if (firstActiveCls.length > 0) {
         if (e.which === keyCode && isOverlapping(firstActiveCls) ) {
-          // pulse()
+          return score.html(parseInt(score.html()) + 10)
         }
       }
     })
@@ -61,7 +61,7 @@ $( document ).ready( function() {
   PATTERN_D.forEach( function(sec) {
     generateNotes(sec, '.column-d')
   })
-  rightKeyPress('.column-d', 100)
+  theyOverlap('.column-d', 100)
 
 
 })
