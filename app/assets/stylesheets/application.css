@@ -13,15 +13,20 @@
  *= require_tree .
  *= require_self
  */
-
+body {
+  font-family: 'Love Ya Like A Sister', sans-serif;
+}
  .score-board {
-   width: 100px;
-   height: 100px;
+   width: 250px;
+   height: 50px;
    background-color: ivory;
    float: right;
    font-size: 2.5em;
    text-align: center;
-   color: #999;
+ }
+ .score {
+   color: #666;
+   margin: 0 auto;
  }
  .game-board {
    width: 500px;

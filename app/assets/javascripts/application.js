@@ -59,7 +59,7 @@ $( document ).ready( function() {
           score.addClass('pulse minus')
         }
       } else { // if score is < 0.
-        return score.html('Game Over')
+        return score.html('GAME OVER')
       }
     })
   }
