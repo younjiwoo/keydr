@@ -14,7 +14,7 @@
  *= require_self
  */
 body {
-  font-family: 'Love Ya Like A Sister', sans-serif;
+  font-family: 'Coming Soon', sans-serif;
 }
  .score-board {
    width: 250px;
@@ -39,6 +39,8 @@ body {
    width: 100px;
    height: 500px;
    position: absolute;
+   text-align: center;
+   font-size: 2em;
  }
  .column-d {
    left: 35px;

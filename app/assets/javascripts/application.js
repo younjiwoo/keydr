@@ -15,7 +15,9 @@
 //= require_tree .
 
 const PATTERN_D = [0, 3, 4, 8, 9, 11, 13, 17, 18, 19]
-// const PATTERN_F = [2, 4, 5, 6, 10, 13, 14, 15, 18, 20]
+const PATTERN_F = [2, 4, 6, 8, 10, 12, 19]
+const PATTERN_J = [0, 1, 5]
+const PATTERN_K = [0, 2, 4]
 
 
 $( document ).ready( function() {
@@ -47,19 +49,24 @@ $( document ).ready( function() {
       })
     }, sec * 1000)
   }
-  function handleKeypress(column, keyCode) {
+  function isGameOver() {
+    return parseInt( score.html() ) < 10
+  }
+  function handleKeypress(column, keycode) {
     $( window ).keypress( function (e) {
-      let closestNoteB4Bar = $(`${column} .active`).first()
-      if ( closestNoteB4Bar.length && parseInt(score.html()) > 0 ) {
-        if (e.which === keyCode && isOverlapping(closestNoteB4Bar) ) {
-          score.html(parseInt(score.html()) + 10)
-          score.addClass('pulse plus')
-        } else {
-          score.html(parseInt(score.html()) - 10)
-          score.addClass('pulse minus')
+      if ( e.which === keycode ) {
+        let noteAboveBar = $(`${column} .active`).first()
+        if ( noteAboveBar.length && !isGameOver() ) {
+          if ( isOverlapping(noteAboveBar) ) {
+            score.html( parseInt(score.html()) + 10 )
+            score.addClass('pulse plus')
+          } else {
+            score.html( parseInt(score.html()) - 10 )
+            score.addClass('pulse minus')
+          }
+        } else if ( isGameOver() ) {
+          return score.html('GAME OVER').addClass('minus')
         }
-      } else { // if score is < 0.
-        return score.html('GAME OVER')
       }
     })
   }
@@ -73,6 +80,22 @@ $( document ).ready( function() {
     generateNotes(sec, '.column-d')
   })
   handleKeypress('.column-d', 100)
+
+  PATTERN_F.forEach( function(sec) {
+    generateNotes(sec, '.column-f')
+  })
+  handleKeypress('.column-f', 102)
+
+  PATTERN_J.forEach( function(sec) {
+    generateNotes(sec, '.column-j')
+  })
+  handleKeypress('.column-j', 106)
+
+  PATTERN_K.forEach( function(sec) {
+    generateNotes(sec, '.column-k')
+  })
+  handleKeypress('.column-k', 107)
+
 
 
 })
