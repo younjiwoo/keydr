@@ -14,10 +14,10 @@
 //= require jquery
 //= require_tree .
 
-const PATTERN_D = [0, 3, 4, 8, 9, 11, 13, 17, 18, 19]
-const PATTERN_F = [2, 4, 6, 8, 10, 12, 19]
-const PATTERN_J = [0, 1, 5]
-const PATTERN_K = [0, 2, 4]
+const PATTERN_D = [0, 1.5, 4, 8, 9, 11, 13, 17, 18, 19]
+const PATTERN_F = [0.5, 1.5, 2, 4, 6, 8, 10, 12, 19]
+const PATTERN_J = [0, 1, 2, 5]
+const PATTERN_K = [0, 2, 2.5, 3, 3.5, 4]
 
 
 $( document ).ready( function() {
@@ -95,7 +95,6 @@ $( document ).ready( function() {
     generateNotes(sec, '.column-k')
   })
   handleKeypress('.column-k', 107)
-
 
 
 })
