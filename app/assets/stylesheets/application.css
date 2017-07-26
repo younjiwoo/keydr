@@ -13,67 +13,74 @@
  *= require_tree .
  *= require_self
  */
+
+/* color theme
+green => background-color: rgb(163, 224, 202);
+blue => background-color: rgb(163, 215, 224);
+purple => background-color: rgb(231, 181, 242);
+red => background-color: rgb(241, 181, 203);
+*/
+
 body {
   font-family: 'Coming Soon', sans-serif;
+  /*position: absolute;*/
 }
- .score-board {
-   width: 250px;
-   height: 50px;
-   background-color: ivory;
-   float: right;
-   font-size: 2.5em;
-   text-align: center;
- }
- .score {
-   color: #666;
-   margin: 0 auto;
- }
- .game-board {
-   width: 500px;
-   height: 500px;
-   background-color: ivory;
-   position: relative;
-   overflow: hidden;
- }
- .column {
-   width: 100px;
-   height: 500px;
-   position: absolute;
-   text-align: center;
-   font-size: 2em;
- }
- .column-d {
-   left: 35px;
-   background-color: rgb(163, 224, 202);
- }
- .column-f {
-   left: 145px;
-   background-color: rgb(163, 215, 224);
- }
- .column-j {
-   left: 255px;
-   background-color: rgb(231, 181, 242);
- }
- .column-k {
-   left: 365px;
-   background-color: rgb(241, 181, 203);
- }
- .bar {
-   width: 500px;
-   height: 50px;
-   background-color: gold;
-   position: absolute;
-   top: 400px;
-   opacity: .5;
-   z-index: 10;
- }
- .note {
-   width: 100px;
-   height: 10px;
-   background-color: salmon;
-   position: absolute;
- }
- @keyframes pulse_animation {
+.chooseSongContainer {
+  width: 500px;
+  height: 500px;
+  background-color: yellowgreen;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 20;
+  /*background-image: linear-gradient(to bottom, transparent 50%, #655 0);*/
+}
+.game-board {
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  background-color: ivory;
+  position: relative;
+  overflow: hidden;
+}
+.column {
+  width: 100px;
+  height: 500px;
+  position: absolute;
+  text-align: center;
+  font-size: 2em;
+}
+.column-d {
+  left: 35px;
+  background-color: rgb(163, 224, 202);
+}
+.column-f {
+  left: 145px;
+  background-color: rgb(163, 215, 224);
+}
+.column-j {
+  left: 255px;
+  background-color: rgb(231, 181, 242);
+}
+.column-k {
+  left: 365px;
+  background-color: rgb(241, 181, 203);
+}
+.bar {
+  width: 500px;
+  height: 50px;
+  background-color: gold;
+  position: absolute;
+  top: 400px;
+  opacity: .5;
+  z-index: 10;
+}
+.note {
+  width: 100px;
+  height: 10px;
+  background-color: salmon;
+  position: absolute;
+}
+@keyframes pulse_animation {
 	0% { transform: scale(1); }
 	30% { transform: scale(1.25); }
 	40% { transform: scale(1.4); }
@@ -94,4 +101,16 @@ body {
 }
 .minus {
   color: #cc282b;
+}
+.score-board {
+  width: 250px;
+  height: 50px;
+  background-color: ivory;
+  float: right;
+  font-size: 2.5em;
+  text-align: center;
+}
+.score {
+  color: #666;
+  margin: 0 auto;
 }

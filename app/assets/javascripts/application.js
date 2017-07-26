@@ -24,6 +24,7 @@ $( document ).ready( function() {
   const BAR = $('.bar')
   let scoreBoard = $('.score-board')
   let score = $('.score')
+  $('.columnsContainer').hide()
 
   // Helper Method.
   function ceilToTopOfElem(el) {
@@ -70,31 +71,42 @@ $( document ).ready( function() {
       }
     })
   }
+  function startGame() {
+    PATTERN_D.forEach( function(sec) {
+      generateNotes(sec, '.column-d')
+    })
+    handleKeypress('.column-d', 100)
+
+    PATTERN_F.forEach( function(sec) {
+      generateNotes(sec, '.column-f')
+    })
+    handleKeypress('.column-f', 102)
+
+    PATTERN_J.forEach( function(sec) {
+      generateNotes(sec, '.column-j')
+    })
+    handleKeypress('.column-j', 106)
+
+    PATTERN_K.forEach( function(sec) {
+      generateNotes(sec, '.column-k')
+    })
+    handleKeypress('.column-k', 107)
+  }
 
   score[0].addEventListener('webkitAnimationEnd', function() {
     score.removeClass('pulse plus minus')
   });
 
+  $('.chooseSongContainer').click( function() {
+    $('.chooseSongContainer').hide(1000)
+    $('.columnsContainer').show(2000)
+    let easyLevel = new Audio('assets/Khalid_Location.ogg')
+    easyLevel.play()
+    startGame()
+  })
+
   // Start Calling Methods.
-  PATTERN_D.forEach( function(sec) {
-    generateNotes(sec, '.column-d')
-  })
-  handleKeypress('.column-d', 100)
 
-  PATTERN_F.forEach( function(sec) {
-    generateNotes(sec, '.column-f')
-  })
-  handleKeypress('.column-f', 102)
-
-  PATTERN_J.forEach( function(sec) {
-    generateNotes(sec, '.column-j')
-  })
-  handleKeypress('.column-j', 106)
-
-  PATTERN_K.forEach( function(sec) {
-    generateNotes(sec, '.column-k')
-  })
-  handleKeypress('.column-k', 107)
 
 
 })
