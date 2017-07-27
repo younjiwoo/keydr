@@ -32,7 +32,18 @@ body {
   border-radius: 50%;
   position: absolute;
   z-index: 20;
-  /*background-image: linear-gradient(to bottom, transparent 50%, #655 0);*/
+}
+.easy, .medium, .hard {
+  /*width: 100%;
+  height: 30%;*/
+  font-size: 2em;
+  text-align: center;
+}
+.easy {
+}
+.medium {
+}
+.hard {
 }
 .game-board {
   margin: 0 auto;
@@ -80,6 +91,18 @@ body {
   background-color: salmon;
   position: absolute;
 }
+.gameOverContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #999;
+  /*background: rgba(130, 129, 122, .6);*/
+  color: red;
+  font-size: 5em;
+  z-index: 20;
+  text-align: center;
+}
+
 @keyframes pulse_animation {
 	0% { transform: scale(1); }
 	30% { transform: scale(1.25); }
@@ -96,10 +119,10 @@ body {
 	transform-origin:70% 70%;
 	animation-timing-function: linear;
 }
-.plus {
+.score.plus {
   color: #42a1f4;
 }
-.minus {
+.score.minus {
   color: #cc282b;
 }
 .score-board {
