@@ -108,7 +108,7 @@ $( document ).ready( function() {
   }
   function gameCompleted() {
     $('.gameCompleted').show(2000)
-    $('.playAgainBtn').before(`Your Score: ${score.html()}`)
+    $('.play-again-btn').before(`Your Score: ${score.html()}`)
   }
 
   score[0].addEventListener('webkitAnimationEnd', function() {
@@ -122,7 +122,7 @@ $( document ).ready( function() {
     startGame()
   })
 
-  $('.playAgainBtn').click( showChooseSong )
-  $('.exitBtn').click( showChooseSong ) // Probably change this later.
+  $('.play-again-btn').click( showChooseSong )
+  $('.exit-btn').click( showChooseSong ) // Probably change this later.
 
 })

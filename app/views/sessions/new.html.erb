@@ -2,18 +2,24 @@
   <p class='score'></p>
   <% if current_user %>
     Welcome <%= current_user.first_name %><br>
+    <i class="fa fa-sign-out" aria-hidden="true"></i>
     <%= link_to 'Log Out', logout_path, class: 'links' %>
   <% else %>
     Hi there.<br>
+    <i class="fa fa-user-plus" aria-hidden="true"></i>
     <%= link_to 'Sign Up', signup_path, class: 'links' %>
   <% end %>
 </div>
 
-<div class="game-board">
+<div class="game-board screen">
   <%= form_for @user, url: "/sessions", method: "post" do |f| %>
-    <p class='screen-header'>Log In</p>
+    <div class='screen-header'>
+      <i class="fa fa-sign-in" aria-hidden="true"></i>
+    </div>
+    <i class="fa fa-2x fa-envelope-o" aria-hidden="true"></i>
     <%= f.text_field :email, placeholder: "Email", class: 'login-inputs' %>
+    <i class="fa fa-2x fa-key" aria-hidden="true"></i>
     <%= f.password_field :password, placeholder: "Password", class: 'login-inputs' %>
-    <%= f.submit "Log In", class: 'login-submit' %>
+    <%= f.submit "Log In", class: 'btn login-btn' %>
   <% end %>
 </div>

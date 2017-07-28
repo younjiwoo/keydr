@@ -1,8 +1,25 @@
-Sign Up :)
-<%= form_for @user do |f| %>
-  <%= f.text_field :first_name, placeholder: 'First Name' %>
-  <%= f.text_field :last_name, placeholder: 'Last Name' %>
-  <%= f.email_field :email, placeholder: 'Email' %>
-  <%= f.password_field :password, placeholder: 'New Password' %>
-  <%= f.submit "Sign Up" %>
-<% end %>
+<div class='score-board'>
+  <p class='score'></p>
+  <% if current_user %>
+    Welcome <%= current_user.first_name %><br>
+    <i class="fa fa-sign-out" aria-hidden="true"></i>
+    <%= link_to 'Log Out', logout_path, class: 'links' %>
+  <% else %>
+    Hi there.<br>
+    <i class="fa fa-sign-in" aria-hidden="true"></i>
+    <%= link_to 'Log In', login_path, class: 'links' %>
+  <% end %>
+</div>
+
+<div class="game-board screen">
+  <%= form_for @user do |f| %>
+    <div class='screen-header'>
+      <i class="fa fa-user-plus" aria-hidden="true"></i>
+    </div>
+    <%= f.text_field :first_name, placeholder: 'First Name', class: 'signup-inputs' %>
+    <%= f.text_field :last_name, placeholder: 'Last Name', class: 'signup-inputs' %>
+    <%= f.email_field :email, placeholder: 'Email', class: 'signup-inputs' %>
+    <%= f.password_field :password, placeholder: 'New Password', class: 'signup-inputs' %>
+    <%= f.submit "Sign Up", class: 'btn signup-btn' %>
+  <% end %>
+</div>

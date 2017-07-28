@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <%= link_to raw('<i class="fa fa-3x fa-home" aria-hidden="true"></i>'), root_path, class: 'home links' %>
     <% flash.each do |type, message| %>
       <p class='flash-msg'><%= message %></p>
     <% end %>

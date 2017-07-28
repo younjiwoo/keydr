@@ -14,6 +14,9 @@
  *= require_self
  */
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 /* color theme
 green => background-color: rgb(163, 224, 202);
 blue => background-color: rgb(163, 215, 224);
@@ -30,24 +33,39 @@ body {
   color: red;
 }
 .chooseSongContainer {
-  width: 500px;
-  height: 500px;
-  background-color: yellowgreen;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
   position: absolute;
   z-index: 20;
 }
-.easy, .medium, .hard {
-  /*width: 100%;
-  height: 30%;*/
+.level {
+  color: white;
+  width: 100%;
+  height: 33.3%;
   font-size: 2em;
   text-align: center;
 }
+.level:hover {
+  cursor: pointer;
+  background: white;
+}
 .easy {
+  background-color: rgb(163, 224, 202);
+}
+.easy:hover {
+  color: rgb(163, 224, 202);
 }
 .medium {
+  background-color: rgb(241, 181, 203);
+}
+.medium:hover {
+  color: rgb(241, 181, 203);
 }
 .hard {
+  background-color: rgb(163, 215, 224);
+}
+.hard:hover {
+  color: rgb(163, 215, 224);
 }
 .game-board {
   margin: 0 auto;
@@ -61,9 +79,14 @@ body {
   text-align: center;
   color: #999;
 }
+.screen {
+  border-radius: 50%;
+}
 .screen-header {
+  color: white;
   font-size: 3em;
   text-align: center;
+  margin-top: 50px;
 }
 .column {
   width: 100px;
@@ -109,9 +132,15 @@ body {
   position: absolute;
   background-color: rgb(241, 181, 203);
   color: red;
-  font-size: 5em;
   z-index: 20;
   text-align: center;
+}
+.gameOverContainer > p {
+  font-size: 2.5em;
+}
+.btn.play-again-btn {
+  padding: 0;
+  margin: 30px 80px 0 0;
 }
 .gameCompleted {
   width: 100%;
@@ -162,25 +191,29 @@ body {
   margin: 20px auto 0;
 }
 .links {
-  text-decoration: none;
+  color: white;
   font-size: .8em;
+  text-decoration: none;
 }
 .links:hover {
   color: white;
+}
+.home:hover {
+  color: rgb(231, 181, 242);
 }
 .login-inputs {
   border: 0;
   border-bottom: white 4px solid;
   background-color: transparent;
   color: white;
-  font-size: 2.5em;
+  font-size: 1.5em;
   text-align: center;
-  margin-top: 20px;
-  width: 80%;
+  margin-top: 50px;
+  width: 75%;
   line-height: 1em;
   font-family: 'Coming Soon', sans-serif;
 }
-.login-submit {
+.btn {
   border: white 4px solid;
   border-radius: 50%;
   height: 100px;
@@ -191,11 +224,32 @@ body {
   font-size: 1.2em;
   width: 33.3%;
   padding: 3%;
-  display: block;
-  margin: 30px auto 0;
 }
-.login-submit:hover {
+.btn:hover {
   background-color: white;
   color: #999;
   cursor: pointer;
+}
+.login-btn {
+  display: inline-block;
+  margin: 30px 30px 0;
+}
+.signup-inputs {
+  border: 0;
+  border-bottom: white 4px solid;
+  background-color: transparent;
+  color: white;
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 15px;
+  width: 70%;
+  line-height: 1em;
+  font-family: 'Coming Soon', sans-serif;
+}
+.signup-btn {
+  display: block;
+  margin: 25px auto 0;
+}
+.fa {
+  color: white;
 }
