@@ -12,13 +12,19 @@
 //
 //= require rails-ujs
 //= require jquery
+// = require phaser
 //= require_tree .
 
-const PATTERN_D = [9, 11, 13, 17, 18, 19, 27, 37, 38]
-const PATTERN_F = [8, 10, 12, 19, 26, 27, 34, 37]
-const PATTERN_J = [0, 1, 2, 5, 7, 13, 23, 28, 32, 35, 36]
-const PATTERN_K = [0, 2, 2.5, 3, 3.5, 4, 22, 25, 28, 29, 30, 31, 32, 39, 40, 42, 43]
-
+const EASY_SONG = {
+  title: 'Location',
+  artist: 'Khalid',
+  pattern: {
+    d: [9, 11, 13, 17, 18, 19, 27, 37, 38],
+    f: [8, 10, 12, 19, 26, 27, 34, 37],
+    j: [0, 1, 2, 5, 7, 13, 23, 28, 32, 35, 36],
+    k: [0, 2, 2.5, 3, 3.5, 4, 22, 25, 28, 29, 30, 31, 32, 39, 40, 42, 43]
+  }
+}
 
 $( document ).ready( function() {
   const BAR = $('.bar')
@@ -83,13 +89,13 @@ $( document ).ready( function() {
   function startGame() {
     score.html(100)
     $('audio').trigger('play')
-    PATTERN_D.forEach( function(sec) { generateNotes(sec, '.column-d') })
+    EASY_SONG.pattern.d.forEach( function(sec) { generateNotes(sec, '.column-d') })
     handleKeypress('.column-d', 100)
-    PATTERN_F.forEach( function(sec) { generateNotes(sec, '.column-f')})
+    EASY_SONG.pattern.f.forEach( function(sec) { generateNotes(sec, '.column-f')})
     handleKeypress('.column-f', 102)
-    PATTERN_J.forEach( function(sec) { generateNotes(sec, '.column-j')})
+    EASY_SONG.pattern.j.forEach( function(sec) { generateNotes(sec, '.column-j')})
     handleKeypress('.column-j', 106)
-    PATTERN_K.forEach( function(sec) { generateNotes(sec, '.column-k')})
+    EASY_SONG.pattern.k.forEach( function(sec) { generateNotes(sec, '.column-k')})
     handleKeypress('.column-k', 107)
   }
   function stopAudio() {

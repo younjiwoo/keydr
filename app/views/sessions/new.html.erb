@@ -1,11 +1,19 @@
-Log In
+<div class='score-board'>
+  <p class='score'></p>
+  <% if current_user %>
+    Welcome <%= current_user.first_name %><br>
+    <%= link_to 'Log Out', logout_path, class: 'links' %>
+  <% else %>
+    Hi there.<br>
+    <%= link_to 'Sign Up', signup_path, class: 'links' %>
+  <% end %>
+</div>
 
-<%= form_for @user, url: "/sessions", method: "post" do |f| %>
-  <div>
-    <%= f.text_field :email, placeholder: "Email" %>
-  </div>
-  <div>
-    <%= f.password_field :password, placeholder: "Password" %>
-  </div>
-  <%= f.submit "Log In" %>
-<% end %>
+<div class="game-board">
+  <%= form_for @user, url: "/sessions", method: "post" do |f| %>
+    <p class='screen-header'>Log In</p>
+    <%= f.text_field :email, placeholder: "Email", class: 'login-inputs' %>
+    <%= f.password_field :password, placeholder: "Password", class: 'login-inputs' %>
+    <%= f.submit "Log In", class: 'login-submit' %>
+  <% end %>
+</div>

@@ -23,6 +23,7 @@ red => background-color: rgb(241, 181, 203);
 
 body {
   font-family: 'Coming Soon', sans-serif;
+  background-color: khaki;
   /*position: absolute;*/
 }
 .flash-msg {
@@ -52,9 +53,17 @@ body {
   margin: 0 auto;
   width: 500px;
   height: 500px;
-  background-color: ivory;
+  border: white 20px solid;
   position: relative;
   overflow: hidden;
+}
+.game-board > form {
+  text-align: center;
+  color: #999;
+}
+.screen-header {
+  font-size: 3em;
+  text-align: center;
 }
 .column {
   width: 100px;
@@ -82,10 +91,10 @@ body {
 .bar {
   width: 500px;
   height: 50px;
-  background-color: gold;
+  background-color: white;
   position: absolute;
   top: 400px;
-  opacity: .5;
+  opacity: .7;
   z-index: 10;
 }
 .note {
@@ -138,14 +147,55 @@ body {
   color: #cc282b;
 }
 .score-board {
-  width: 250px;
-  height: 50px;
-  background-color: ivory;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(231, 181, 242);
   float: right;
-  font-size: 2.5em;
+  font-size: 1em;
   text-align: center;
+  border-radius: 50%;
+  border: white 20px solid;
 }
 .score {
+  font-size: 2em;
   color: #666;
-  margin: 0 auto;
+  margin: 20px auto 0;
+}
+.links {
+  text-decoration: none;
+  font-size: .8em;
+}
+.links:hover {
+  color: white;
+}
+.login-inputs {
+  border: 0;
+  border-bottom: white 4px solid;
+  background-color: transparent;
+  color: white;
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 20px;
+  width: 80%;
+  line-height: 1em;
+  font-family: 'Coming Soon', sans-serif;
+}
+.login-submit {
+  border: white 4px solid;
+  border-radius: 50%;
+  height: 100px;
+  max-width: 100px;
+  background-color: transparent;
+  color: white;
+  font-family: 'Coming Soon', sans-serif;
+  font-size: 1.2em;
+  width: 33.3%;
+  padding: 3%;
+  display: block;
+  margin: 30px auto 0;
+}
+.login-submit:hover {
+  background-color: white;
+  color: #999;
+  cursor: pointer;
 }
