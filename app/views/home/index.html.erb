@@ -1,4 +1,16 @@
-<div class='score-board'><p class='score'></p></div>
+<div class='score-board'>
+  <p class='score'></p>
+  <% if current_user %>
+    Welcome, <%= current_user.first_name %>.
+    <%= link_to 'Log Out', logout_path %>
+  <% else %>
+    Hi there.
+    <%= link_to 'Log In', login_path %>
+    <%= link_to 'Sign Up', signup_path %>
+  <% end %>
+</div>
+
+
 
 <div class="game-board">
   <div class="chooseSongContainer">

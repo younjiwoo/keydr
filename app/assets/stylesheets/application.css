@@ -25,6 +25,9 @@ body {
   font-family: 'Coming Soon', sans-serif;
   /*position: absolute;*/
 }
+.flash-msg {
+  color: red;
+}
 .chooseSongContainer {
   width: 500px;
   height: 500px;
