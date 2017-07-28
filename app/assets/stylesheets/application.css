@@ -95,9 +95,18 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: #999;
-  /*background: rgba(130, 129, 122, .6);*/
+  background-color: rgb(241, 181, 203);
   color: red;
+  font-size: 5em;
+  z-index: 20;
+  text-align: center;
+}
+.gameCompleted {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgb(163, 215, 224);
+  color: white;
   font-size: 5em;
   z-index: 20;
   text-align: center;

@@ -14,10 +14,10 @@
 //= require jquery
 //= require_tree .
 
-const PATTERN_D = [9, 11, 13, 17, 18, 19]
-const PATTERN_F = [8, 10, 12, 19]
-const PATTERN_J = [0, 1, 2, 5, 7]
-const PATTERN_K = [0, 2, 2.5, 3, 3.5, 4]
+const PATTERN_D = [9, 11, 13, 17, 18, 19, 27, 37, 38]
+const PATTERN_F = [8, 10, 12, 19, 26, 27, 34, 37]
+const PATTERN_J = [0, 1, 2, 5, 7, 13, 23, 28, 32, 35, 36]
+const PATTERN_K = [0, 2, 2.5, 3, 3.5, 4, 22, 25, 28, 29, 30, 31, 32, 39, 40, 42, 43]
 
 
 $( document ).ready( function() {
@@ -26,6 +26,7 @@ $( document ).ready( function() {
   let score = $('.score')
   $('.columnsContainer').hide()
   $('.gameOverContainer').hide()
+  $('.gameCompleted').hide()
 
   // Helper Methods.
   function ceilToTopOfElem(el) {
@@ -76,6 +77,7 @@ $( document ).ready( function() {
     location.reload()
     $('.gameOverContainer').hide()
     $('.columnsContainer').hide()
+    $('.gameCompleted').hide()
     $('.chooseSongContainer').show()
   }
   function startGame() {
@@ -98,10 +100,15 @@ $( document ).ready( function() {
     $('.gameOverContainer').show(1000)
     stopAudio()
   }
+  function gameCompleted() {
+    $('.gameCompleted').show(2000)
+    $('.gameCompleted').append(score.html())
+  }
 
   score[0].addEventListener('webkitAnimationEnd', function() {
     score.removeClass('pulse plus minus')
   });
+  $('audio').get(0).addEventListener("ended", gameCompleted);
 
   $('.chooseSongContainer').click( function() {
     $('.chooseSongContainer').hide(1000)
@@ -110,7 +117,6 @@ $( document ).ready( function() {
   })
 
   $('.playAgainBtn').click( showChooseSong )
-
 
 
 })
