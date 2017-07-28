@@ -14,9 +14,9 @@
 //= require jquery
 //= require_tree .
 
-const PATTERN_D = [0, 1.5, 4, 8, 9, 11, 13, 17, 18, 19]
-const PATTERN_F = [0.5, 1.5, 2, 4, 6, 8, 10, 12, 19]
-const PATTERN_J = [0, 1, 2, 5]
+const PATTERN_D = [9, 11, 13, 17, 18, 19]
+const PATTERN_F = [8, 10, 12, 19]
+const PATTERN_J = [0, 1, 2, 5, 7]
 const PATTERN_K = [0, 2, 2.5, 3, 3.5, 4]
 
 
@@ -24,11 +24,10 @@ $( document ).ready( function() {
   const BAR = $('.bar')
   let scoreBoard = $('.score-board')
   let score = $('.score')
-  let isGameActive = false
   $('.columnsContainer').hide()
   $('.gameOverContainer').hide()
 
-  // Helper Method.
+  // Helper Methods.
   function ceilToTopOfElem(el) {
     return el.offset().top
   }
@@ -40,8 +39,6 @@ $( document ).ready( function() {
   }
   function generateNotes(sec, column) {
     setTimeout( function() {
-      console.log(isGameActive)
-      if (isGameActive) {
         const NEW_NOTE = $('<div class="note active" />')
         $( column ).append(NEW_NOTE)
         NEW_NOTE.animate({
@@ -52,7 +49,7 @@ $( document ).ready( function() {
             top: $('.game-board').height()
           }, 500, 'linear')
         })
-      }
+      // }
     }, sec * 1000)
   }
   function isGameOver() {
@@ -70,19 +67,20 @@ $( document ).ready( function() {
             score.addClass('pulse minus')
           }
         } else if ( isGameOver() ) {
-          stopGame( score.html() )
+          stopGame()
         }
       }
     })
   }
   function showChooseSong() {
+    location.reload()
     $('.gameOverContainer').hide()
     $('.columnsContainer').hide()
     $('.chooseSongContainer').show()
   }
   function startGame() {
     score.html(100)
-    isGameActive = true
+    $('audio').trigger('play')
     PATTERN_D.forEach( function(sec) { generateNotes(sec, '.column-d') })
     handleKeypress('.column-d', 100)
     PATTERN_F.forEach( function(sec) { generateNotes(sec, '.column-f')})
@@ -92,15 +90,13 @@ $( document ).ready( function() {
     PATTERN_K.forEach( function(sec) { generateNotes(sec, '.column-k')})
     handleKeypress('.column-k', 107)
   }
-  function audioStartOver() {
+  function stopAudio() {
     $('audio').get(0).pause()
     $('audio').get(0).currentTime = 0
   }
-  function stopGame(currentScore) {
-    isGameActive = false
+  function stopGame() {
     $('.gameOverContainer').show(1000)
-                           .append(`<p class='endingScore'>Your score: ${currentScore}</p>`)
-    audioStartOver()
+    stopAudio()
   }
 
   score[0].addEventListener('webkitAnimationEnd', function() {
@@ -110,7 +106,6 @@ $( document ).ready( function() {
   $('.chooseSongContainer').click( function() {
     $('.chooseSongContainer').hide(1000)
     $('.columnsContainer').show(2000)
-    $('audio').trigger('play')
     startGame()
   })
 
