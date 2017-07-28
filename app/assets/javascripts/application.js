@@ -107,8 +107,21 @@ $( document ).ready( function() {
     stopAudio()
   }
   function gameCompleted() {
+    let finalScore = score.html()
     $('.gameCompleted').show(2000)
-    $('.play-again-btn').before(`Your Score: ${score.html()}`)
+    $('.play-again-btn').before(`Your Score: ${finalScore}`)
+    // postScore( finalScore )
+  }
+  function postScore( finalScore ) {
+    let finalScoreInt = parseInt( finalScore )
+    $.ajax({
+      method: 'POST',
+      url: '/gameplays',
+      data: { score: finalScoreInt },
+      success: function(res) {
+        // debugger
+      }
+    })
   }
 
   score[0].addEventListener('webkitAnimationEnd', function() {

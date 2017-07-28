@@ -1,0 +1,2 @@
+class Gameplay < ApplicationRecord
+end

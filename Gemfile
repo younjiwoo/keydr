@@ -25,6 +25,8 @@ gem 'phaser-rails'
 
 gem 'font-awesome-sass'
 
+gem 'pry'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 

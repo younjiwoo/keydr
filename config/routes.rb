@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new', as: 'signup'
   post '/users', to: 'users#create'
+
+  post '/gameplays', to: 'gameplays#create'
 end
