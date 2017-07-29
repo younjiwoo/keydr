@@ -23,7 +23,7 @@ games = Game.create([
       title: 'Wild Thoughts',
       artist: 'DJ Khaled & Rihanna',
       level: 'Medium',
-      file_path: '../assets/wildThoughts.ogg',
+      file_path: '/assets/wildThoughts.ogg',
       pattern: {
         'd': [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 37, 38],
         'f': [2, 3, 4, 5, 7, 12, 19, 26, 27, 34, 37],
@@ -35,7 +35,7 @@ games = Game.create([
       title: 'Location',
       artist: 'Khalid',
       level: 'Hard',
-      file_path: 'assets/Khalid_Location.ogg',
+      file_path: '/assets/Khalid_Location.ogg',
       pattern: {
         'd': [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 37, 38],
         'f': [2, 3, 4, 5, 7, 12, 19, 26, 27, 34, 37],

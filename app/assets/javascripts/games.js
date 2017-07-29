@@ -43,6 +43,7 @@ $( document ).ready( function() {
           if ( isOverlapping(noteAboveBar) ) {
             score.html( parseInt(score.html()) + 10 )
             score.addClass('pulse plus')
+            noteAboveBar.addClass('pulse')
           } else {
             score.html( parseInt(score.html()) - 10 )
             score.addClass('pulse minus')
@@ -77,18 +78,26 @@ $( document ).ready( function() {
   function gameCompleted() {
     let finalScore = score.html()
     $('.gameCompleted').show(2000)
-    $('.play-again-btn').before(`Your Score: ${finalScore}`)
-    // postScore( finalScore )
+    $('.play-again-btn').before(`<p>Your Score: ${finalScore}</p>`)
+    postScore( finalScore )
   }
   function postScore( finalScore ) {
-    let finalScoreInt = parseInt( finalScore )
+    let game_id = $('.game_id').text()
     $.ajax({
       method: 'POST',
       url: '/gameplays',
-      data: { score: finalScoreInt },
-      success: function(res) {
-        // debugger
-      }
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      data: { score: finalScore, game_id: game_id },
+      success: top3Scores
+    })
+  }
+  function top3Scores(response) {
+    response.forEach( function(gameplayObj, idx) {
+      $('.top3Scores').append(`<tr>
+                                <td>${idx + 1}</td>
+                                <td>${gameplayObj.user.first_name} ${gameplayObj.user.last_name}</td>
+                                <td>${gameplayObj.score}</td>
+                              </tr>`)
     })
   }
 
@@ -97,13 +106,12 @@ $( document ).ready( function() {
   });
   $('audio').get(0).addEventListener("ended", gameCompleted);
 
-  $('.play-again-btn').click( function() {
-    window.location.replace('/games')
+  $('.play-again-btn, .exit-btn').click( function() {
+    window.location.replace('/')
   })
   $('.start-btn').click( function() {
     $('.readyContainer').hide(1000)
     setTimeout( startGame, 1000 )
   })
-  // $('.exit-btn').click( showChooseSong ) // Probably change this later.
 
 })

@@ -40,11 +40,13 @@
     <p>Congrats!<br>
       <i class="fa fa-smile-o" aria-hidden="true"></i>
     </p>
+    <table class="top3Scores"></table>
     <input type="submit" name="commit" value="Try Again" class="btn play-again-btn" data-disable-with="play">
     <input type="submit" name="commit" value="Exit" class="btn exit-btn" data-disable-with="exit">
   </div>
 </div>
 
+<p class='game_id' hidden="hidden"><%= @game.id %></p>
 <audio controls preload="auto">
  <source src="<%= @game.file_path %>" type="audio/ogg">
 </audio>
