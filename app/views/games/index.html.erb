@@ -1,0 +1,9 @@
+<div class="game-board">
+  <div class="chooseSongContainer">
+    <% @games.each do |game| %>
+      <div class="level <%= game.level.downcase %>"><%= game.title %> - <%= game.artist %><br>Level: <%= game.level %>
+        <%= link_to "this is link", game_path(game.id) %>
+      </div>
+    <% end %>
+  </div>
+</div>

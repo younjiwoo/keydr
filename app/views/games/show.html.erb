@@ -1,4 +1,6 @@
-<!-- <div class='score-board'>
+<%= javascript_include_tag "games.js" %>
+
+<div class='score-board'>
   <p class='score'></p>
   <% if current_user %>
     Welcome <%= current_user.first_name %><br>
@@ -13,7 +15,12 @@
   <% end %>
 </div>
 
+<div class="game-board">
+  <div class="readyContainer">
+    <input type="submit" value="Start" class="btn start-btn" data-disable-with="start" />
+  </div>
   <div class="columnsContainer">
+    <div class="data-pattern" hidden="hidden" data-pattern='<%= @game.pattern.to_json %>'></div>
     <div class="bar"></div>
     <div class="column column-d">D</div>
     <div class="column column-f">F</div>
@@ -36,8 +43,8 @@
     <input type="submit" name="commit" value="Try Again" class="btn play-again-btn" data-disable-with="play">
     <input type="submit" name="commit" value="Exit" class="btn exit-btn" data-disable-with="exit">
   </div>
-
+</div>
 
 <audio controls preload="auto">
- <source src="assets/30sec.ogg" type="audio/ogg">
-</audio> -->
+ <source src="<%= @game.file_path %>" type="audio/ogg">
+</audio>
