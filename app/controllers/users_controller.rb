@@ -5,9 +5,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    # Signing up should also log a user in.
-    login(@user)
-    redirect_to root_path
+    if @user.id
+      login(@user)
+      redirect_to root_path
+    else
+      flash[:error] = "#{@user.errors.details[:email][0][:value]} #{@user.errors.messages[:email][0]}"
+      redirect_to signup_path
+    end
   end
 
   private

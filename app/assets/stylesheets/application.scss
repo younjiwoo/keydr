@@ -31,6 +31,7 @@ body {
 }
 .flash-msg {
   color: red;
+  text-align: right;
 }
 .game-board {
   margin: 0 auto;
@@ -212,6 +213,9 @@ body {
   color: #666;
   margin: 20px auto 0;
 }
+.login-signup {
+  margin-top: 10px;
+}
 .links {
   color: white;
   font-size: .8em;
@@ -343,7 +347,7 @@ body {
     margin: 30px auto;
   }
   .top3Scores td {
-    font-size: 2em;
+    font-size: 1em;
   }
   .score-board {
     width: 100px;

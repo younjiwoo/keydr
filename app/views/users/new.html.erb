@@ -14,7 +14,7 @@
     <%= f.password_field :password, placeholder: 'Password', class: 'signup-inputs password' %>
     <p class='min-length-err'>Password must be more than 8 characters.</p>
     <%= f.password_field :password, placeholder: 'Confirm Password', class: 'signup-inputs c-password' %>
-    <p class='not-match-err'>Password does not match.</p>
+    <p class='not-match-err'>Repeat your new password.</p>
     <%= f.submit "Sign Up", class: 'btn signup-btn', disabled: true %>
   <% end %>
 </div>

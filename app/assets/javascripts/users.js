@@ -58,7 +58,7 @@ $( document ).ready(function () {
     return inputVal.length > 7
   }
 
-  $('.password').focusout( function() {
+  $('.password').keyup( function() {
     let inputVal = $( this ).val()
     if ( isPresent( inputVal ) ) {
     	if ( isLongEnough( inputVal ) ) {
@@ -78,7 +78,7 @@ $( document ).ready(function () {
   function passwordMatch( inputVal ) {
     return inputVal === $('.password').val()
   }
-  $('.c-password').focusout( function() {
+  $('.c-password').keyup( function() {
     let inputVal = $( this ).val()
     if ( passwordMatch( inputVal ) ) {
       $( this ).removeClass('invalid')

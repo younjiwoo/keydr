@@ -56,6 +56,7 @@ $( document ).ready( function() {
   }
   function startGame() {
     score.html(100)
+    $('.login-signup').hide()
     $('audio').trigger('play')
     let pattern = JSON.parse( $('.data-pattern').attr('data-pattern') )
     pattern.d.forEach( function(sec) { generateNotes(sec, '.column-d') })
@@ -77,7 +78,8 @@ $( document ).ready( function() {
   }
   function gameCompleted() {
     let finalScore = score.html()
-    $('.gameCompleted').show(2000)
+    score.hide()
+    $('.login-signup, .gameCompleted').show(1000)
     $('.play-again-btn').before(`<p>Your Score: ${finalScore}</p>`)
     postScore( finalScore )
   }
@@ -108,9 +110,17 @@ $( document ).ready( function() {
   $('.play-again-btn, .exit-btn').click( function() {
     window.location.replace('/')
   })
-  $('.start-btn').click( function() {
-    $('.readyContainer').hide(1000)
-    setTimeout( startGame, 1000 )
-  })
+
+  $('.start-btn')
+    .mouseenter(function() {
+      $( this ).val('Start')
+    })
+    .mouseout(function() {
+      $( this ).val('Ready?')
+    })
+    .click( function() {
+      $('.readyContainer').hide(1000)
+      setTimeout( startGame, 1000 )
+    })
 
 })
