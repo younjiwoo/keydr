@@ -1,25 +1,20 @@
-<div class='score-board'>
-  <p class='score'></p>
-  <% if current_user %>
-    Welcome <%= current_user.first_name %><br>
-    <i class="fa fa-sign-out" aria-hidden="true"></i>
-    <%= link_to 'Log Out', logout_path, class: 'links' %>
-  <% else %>
-    Hi there.<br>
-    <i class="fa fa-sign-in" aria-hidden="true"></i>
-    <%= link_to 'Log In', login_path, class: 'links' %>
-  <% end %>
-</div>
+<%= javascript_include_tag "users.js" %>
 
 <div class="game-board screen">
   <%= form_for @user do |f| %>
     <div class='screen-header'>
       <i class="fa fa-user-plus" aria-hidden="true"></i>
     </div>
-    <%= f.text_field :first_name, placeholder: 'First Name', class: 'signup-inputs' %>
-    <%= f.text_field :last_name, placeholder: 'Last Name', class: 'signup-inputs' %>
-    <%= f.email_field :email, placeholder: 'Email', class: 'signup-inputs' %>
-    <%= f.password_field :password, placeholder: 'New Password', class: 'signup-inputs' %>
-    <%= f.submit "Sign Up", class: 'btn signup-btn' %>
+    <%= f.text_field :first_name, placeholder: 'First Name', class: 'signup-inputs f-name' %>
+    <p class='f-name-err'>What's your first name?</p>
+    <%= f.text_field :last_name, placeholder: 'Last Name', class: 'signup-inputs l-name' %>
+    <p class='l-name-err'>What's your last name?</p>
+    <%= f.email_field :email, placeholder: 'Email', class: 'signup-inputs email' %>
+    <p class='email-err'>Please type a valid email address please.</p>
+    <%= f.password_field :password, placeholder: 'Password', class: 'signup-inputs password' %>
+    <p class='min-length-err'>Password must be more than 8 characters.</p>
+    <%= f.password_field :password, placeholder: 'Confirm Password', class: 'signup-inputs c-password' %>
+    <p class='not-match-err'>Password does not match.</p>
+    <%= f.submit "Sign Up", class: 'btn signup-btn', disabled: true %>
   <% end %>
 </div>

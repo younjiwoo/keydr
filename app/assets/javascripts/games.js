@@ -92,11 +92,10 @@ $( document ).ready( function() {
     })
   }
   function top3Scores(response) {
-    response.forEach( function(gameplayObj, idx) {
+    response.forEach( function(gameplayObj) {
       $('.top3Scores').append(`<tr>
-                                <td>${idx + 1}</td>
-                                <td>${gameplayObj.user.first_name} ${gameplayObj.user.last_name}</td>
                                 <td>${gameplayObj.score}</td>
+                                <td>${gameplayObj.user.first_name} ${gameplayObj.user.last_name}</td>
                               </tr>`)
     })
   }

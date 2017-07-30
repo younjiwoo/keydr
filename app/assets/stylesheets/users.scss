@@ -1,3 +1,27 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.f-name-err, .l-name-err, .email-err, .password-err, .not-match-err, .min-length-err {
+  &.show {
+    visibility: inherit;
+  }
+  visibility: hidden;
+  color: red;
+  font-size: .8em;
+  margin: 0;
+
+}
+.signup-inputs.invalid {
+  border: 2px solid red;
+}
+.signup-btn.disabled-btn {
+  color: #f2f2f2;
+  cursor: not-allowed;
+  border-color: #f2f2f2;
+}
+.signup-btn.disabled-btn:hover {
+  color: #f2f2f2;
+  background: transparent;
+  cursor: not-allowed;
+}

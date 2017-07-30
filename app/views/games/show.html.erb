@@ -1,20 +1,5 @@
 <%= javascript_include_tag "games.js" %>
 
-<div class='score-board'>
-  <p class='score'></p>
-  <% if current_user %>
-    Welcome <%= current_user.first_name %><br>
-    <i class="fa fa-sign-out" aria-hidden="true"></i>
-    <%= link_to 'Log Out', logout_path, class: 'links' %>
-  <% else %>
-    Hi there.<br>
-    <i class="fa fa-sign-in" aria-hidden="true"></i>
-    <%= link_to 'Log In', login_path, class: 'links' %><br>
-    <i class="fa fa-user-plus" aria-hidden="true"></i>
-    <%= link_to 'Sign Up', signup_path, class: 'links' %>
-  <% end %>
-</div>
-
 <div class="game-board">
   <div class="readyContainer">
     <input type="submit" value="Start" class="btn start-btn" data-disable-with="start" />
@@ -37,10 +22,9 @@
   </div>
 
   <div class="gameCompleted">
-    <p>Congrats!<br>
-      <i class="fa fa-smile-o" aria-hidden="true"></i>
-    </p>
-    <table class="top3Scores"></table>
+    <table class="top3Scores">
+      <th colspan="2">Top 3 Scores <i class="fa fa-smile-o" aria-hidden="true"></i>
+    </table>
     <input type="submit" name="commit" value="Try Again" class="btn play-again-btn" data-disable-with="play">
     <input type="submit" name="commit" value="Exit" class="btn exit-btn" data-disable-with="exit">
   </div>

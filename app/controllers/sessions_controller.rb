@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     @user = User.confirm(user_params)
     if @user
       login(@user)
-      flash[:notice] = 'Successfully logged in. Welcome back.'
+      flash[:notice] = "Welcome back #{@user.first_name}."
       redirect_to root_path
     else
       flash[:error] = 'Incorrect email or password.'
