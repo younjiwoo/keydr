@@ -16,6 +16,6 @@ You can simply download the app, run `bundle install`, run the `rails server`, a
 ## Link to my user stories, ERD(Entity Relationship Diagrams), and Milestones.
 Here is the [Google Doc](https://docs.google.com/spreadsheets/d/1_IuCUMA9GzS1Uf2ccIaUCIwLwk-VfAWMDx5Zg5B4wsA/edit?usp=sharing).
 
-## Link to your wireframes – sketches of major views / interfaces in your application.
+## Screenshots
 
 ## Descriptions of any unsolved problems or future features.
