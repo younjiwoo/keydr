@@ -1,24 +1,21 @@
-# README
+## KeyDR
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Play the game!
+[https://keydr.herokuapp.com/](https://keydr.herokuapp.com/)
 
-Things you may want to cover:
+#### Overview
+KeyDR is a musical game for one player. The user has to press the keys(D, F, J and K) that match the notes coming down the screen, similar to DDR or Guitar Hero. If the player who succeeds in finishing the song has the top 3 highest score, their score gets recorded.
 
-* Ruby version
+## Technologies I used:
 
-* System dependencies
+Ruby-on-Rails back-end with Postgresql database, HTML, CSS, JavaScript and jQuery used in the front-end. ( Ruby version 2.4.0 | Ruby on Rails version: 5.1.2 )
 
-* Configuration
+## Installation
+You can simply download the app, run `bundle install`, run the `rails server`, and then access to [http://localhost:3000](http://localhost:3000).
 
-* Database creation
+## Link to my user stories, ERD(Entity Relationship Diagrams), and Milestones.
+Here is the [Google Doc](https://docs.google.com/spreadsheets/d/1_IuCUMA9GzS1Uf2ccIaUCIwLwk-VfAWMDx5Zg5B4wsA/edit?usp=sharing).
 
-* Database initialization
+## Link to your wireframes – sketches of major views / interfaces in your application.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Descriptions of any unsolved problems or future features.
