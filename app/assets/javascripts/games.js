@@ -4,6 +4,7 @@
 
 $( document ).ready( function() {
   const BAR = $('.bar')
+  let scoreBoard = $('.score-board')
   let score = $('.score')
   $('.gameOverContainer').hide()
   $('.gameCompleted').hide()
