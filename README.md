@@ -29,3 +29,5 @@ Here is the [Google Doc](https://docs.google.com/spreadsheets/d/1_IuCUMA9GzS1Uf2
 6. Add sound effects correct / incorrect keystrokes.
 7. User can login with their Twitter or Facebook id and password (Omniauth).
 8. Add more levels -- very easy, very hard, guru, and etc.
+9. Add a page for top 10 players with their best score.
+10. User has a profile page where they can edit their info and see their score history.
