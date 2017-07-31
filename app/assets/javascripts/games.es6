@@ -100,6 +100,7 @@ $( document ).ready( function() {
   function top3Scores(response) {
     response.forEach( function(gameplayObj) {
       $('.top3Scores').append(`<tr>
+                                <td><i class="fa fa-user" aria-hidden="true"></i></td>
                                 <td>${gameplayObj.score}</td>
                                 <td>${gameplayObj.user.first_name} ${gameplayObj.user.last_name}</td>
                               </tr>`)
