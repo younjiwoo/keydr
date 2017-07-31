@@ -23,11 +23,32 @@ blue => rgb(163, 215, 224);
 purple => rgb(231, 181, 242);
 red => rgb(241, 181, 203);
 */
+// .b-font {
+//   color: #84DBFF;
+// }
+// .r-font {
+//   color: #F76F59;
+// }
+// .y-font {
+//   color: #FBCE5C;
+// }
 
 body {
   font-family: 'Coming Soon', sans-serif;
   background-color: khaki;
   /*position: absolute;*/
+}
+.logoContainer {
+  align-items: center;
+}
+.logoContainer h1 {
+  color: black;
+  font-weight: bold;
+  display: inline;
+  margin-bottom: 10px;
+}
+.logo {
+  height: 49px;
 }
 .flash-msg {
   color: red;
@@ -139,6 +160,9 @@ body {
   background-color: salmon;
   position: absolute;
 }
+audio {
+  visibility: hidden
+}
 .gameOverContainer {
   width: 100%;
   height: 100%;
@@ -189,7 +213,7 @@ body {
 }
 .pulse {
 	animation-name: pulse_animation;
-	animation-duration: 250ms;
+	animation-duration: 150ms;
 	animation-timing-function: linear;
 }
 .score.plus {
@@ -207,6 +231,7 @@ body {
   text-align: center;
   border-radius: 50%;
   border: white 10px solid;
+  margin: 0 auto 50px;
 }
 .score {
   font-size: 2em;
@@ -225,7 +250,10 @@ body {
   color: white;
 }
 .home {
+  width: 100%;
   float: left;
+  display: block;
+  margin: 0 auto;
 }
 .home i:hover {
   color: rgb(231, 181, 242);
@@ -324,7 +352,7 @@ body {
   }
   .bar {
     width: 100%;
-    height: 50px;
+    height: 30px;
     top: 400px;
   }
   .note {
@@ -355,10 +383,16 @@ body {
     font-size: 1em;
     border: white 20px solid;
   }
+  .login-icon {
+    margin-top: 80px;
+  }
   .login-inputs {
-    margin-top: 50px;
+    margin-top: 30px;
     width: 60%;
     line-height: 1em;
+  }
+  .email-input {
+    margin-top: 50px;
   }
   .btn.login-btn {
     display: block;

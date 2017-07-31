@@ -17,34 +17,37 @@ $( document ).ready( function() {
     return ceilToTopOfElem(el) + el.height()
   }
   function isOverlapping(el) {
-    return ceilToBtmOfElem(el) > ceilToTopOfElem(BAR)
+    return ceilToBtmOfElem(el) > ceilToTopOfElem(BAR) && ceilToTopOfElem(el) < ceilToBtmOfElem(BAR)
   }
   function generateNotes(sec, column) {
     setTimeout( function() {
         const NEW_NOTE = $('<div class="note active" />')
         $( column ).append(NEW_NOTE)
         NEW_NOTE.animate({
-          top: $('.game-board').height() - 50
-        }, 4500, 'linear', function() {
+          top: $('.game-board').height() - 70
+        }, 4300, 'linear', function() {
           $( this ).removeClass('active')
           $( this ).animate({
             top: $('.game-board').height()
-          }, 500, 'linear')
+          }, 700, 'linear')
         })
     }, sec * 1000)
   }
   function isGameOver() {
     return parseInt( score.html() ) < 10
   }
-  function handleKeypress(column, keycode) { $( window ).keypress( function (e) {
+  function handleKeypress(column, keycode) {
+    $( window ).keypress( function (e) {
       if ( e.which === keycode ) {
         let noteAboveBar = $(`${column} .active`).first()
         if ( noteAboveBar.length && !isGameOver() ) {
           if ( isOverlapping(noteAboveBar) ) {
+            console.log('got it');
             score.html( parseInt(score.html()) + 10 )
             score.addClass('pulse plus')
             noteAboveBar.addClass('pulse')
           } else {
+            console.log('missed it');
             score.html( parseInt(score.html()) - 10 )
             score.addClass('pulse minus')
           }

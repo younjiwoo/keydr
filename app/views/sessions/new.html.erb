@@ -1,9 +1,9 @@
 <div class="game-board screen">
   <%= form_for @user, url: "/sessions", method: "post" do |f| %>
-    <div class='screen-icon'>
+    <div class='screen-icon login-icon'>
       <i class="fa fa-sign-in" aria-hidden="true"></i>
     </div>
-    <%= f.text_field :email, placeholder: "Email", class: 'login-inputs' %>
+    <%= f.text_field :email, placeholder: "Email", class: 'login-inputs email-input' %>
     <%= f.password_field :password, placeholder: "Password", class: 'login-inputs' %>
     <%= f.submit "Log In", class: 'btn login-btn' %>
   <% end %>

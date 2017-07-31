@@ -10,7 +10,13 @@
   </head>
 
   <body>
-    <%= link_to raw('<i class="fa fa-3x fa-home" aria-hidden="true"></i>'), root_path, class: 'home links' %>
+    <%= link_to root_path, class: 'home links' do %>
+      <div class="logoContainer">
+        <%= image_tag('/assets/logo.png', class: 'logo') %>
+        <h1><span class='r-font'>Key</span><span class='b-font'>D</span><span class='r-font'>R</span></h1>
+      </div>
+    <% end %>
+
     <% flash.each do |type, message| %>
       <p class='flash-msg'><%= message %></p>
     <% end %>

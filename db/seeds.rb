@@ -5,42 +5,45 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+def pattern_maker(length, speed)
+  pattern = {d: [], f: [], j: [], k: []}
+  (length * 2 - 10).times do |i|
+    if rand > speed
+      pattern[:d] << i / 2.0
+    end
+    if rand > speed
+      pattern[:f] << i / 2.0
+    end
+    if rand > speed
+      pattern[:j] << i / 2.0
+    end
+    if rand > speed
+      pattern[:k] << i / 2.0
+    end
+  end
+  pattern
+end
 Game.delete_all
 games = Game.create([
     {
-      title: '30 seconds song',
-      artist: 'Dont know',
+      title: 'Location',
+      artist: 'Khalid',
       level: 'Easy',
-      file_path: '/assets/30sec.ogg',
-      pattern: {
-        'd': [9, 11, 13, 17, 18, 19, 27, 37, 38],
-        'f': [8, 10, 12, 19, 26, 27, 34, 37],
-        'j': [0, 1, 2, 5, 7, 13, 23, 28, 32, 35, 36],
-        'k': [0, 2, 2.5, 3, 3.5, 4, 22, 25, 28, 29, 30, 31, 32, 39, 40, 42, 43]
-      }
+      file_path: '/assets/location.ogg',
+      pattern: pattern_maker(222, 0.85)
     },
     {
       title: 'Wild Thoughts',
       artist: 'DJ Khaled & Rihanna',
       level: 'Medium',
       file_path: '/assets/wildThoughts.ogg',
-      pattern: {
-        'd': [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 37, 38],
-        'f': [2, 3, 4, 5, 7, 12, 19, 26, 27, 34, 37],
-        'j': [0, 1, 2, 5, 7, 13, 23, 28, 32, 35, 36],
-        'k': [0, 2, 2.5, 3, 3.5, 4, 22, 25, 28, 29, 30, 31, 32, 39, 40, 42, 43]
-      }
+      pattern: pattern_maker(215, 0.7)
     },
     {
-      title: 'Location',
-      artist: 'Khalid',
+      title: 'Stolen Dance',
+      artist: 'Milky Chance',
       level: 'Hard',
-      file_path: '/assets/Khalid_Location.ogg',
-      pattern: {
-        'd': [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 37, 38],
-        'f': [2, 3, 4, 5, 7, 12, 19, 26, 27, 34, 37],
-        'j': [0, 1, 2, 5, 7, 13, 23, 28, 32, 35, 36],
-        'k': [0, 2, 2.5, 3, 3.5, 4, 22, 25, 28, 29, 30, 31, 32, 39, 40, 42, 43]
-      }
+      file_path: '/assets/stolenDance_milkyChance.ogg',
+      pattern:  pattern_maker(286, 0.6)
     }
   ])
