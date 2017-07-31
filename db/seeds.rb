@@ -26,24 +26,25 @@ end
 Game.delete_all
 games = Game.create([
     {
-      title: 'Location',
-      artist: 'Khalid',
+      title: 'Believer',
+      artist: 'Imagine Dragons',
       level: 'Easy',
-      file_path: '/assets/location.ogg',
-      pattern: pattern_maker(222, 0.85)
+      file_path: '
+https://storage.googleapis.com/michelleanderin/keydr/believer.ogg',
+      pattern: pattern_maker(216, 0.85)
     },
     {
       title: 'Wild Thoughts',
       artist: 'DJ Khaled & Rihanna',
       level: 'Medium',
-      file_path: '/assets/wildThoughts.ogg',
+      file_path: 'https://storage.googleapis.com/michelleanderin/keydr/wildThoughts.ogg',
       pattern: pattern_maker(215, 0.7)
     },
     {
       title: 'Stolen Dance',
       artist: 'Milky Chance',
       level: 'Hard',
-      file_path: '/assets/stolenDance_milkyChance.ogg',
+      file_path: 'https://storage.googleapis.com/michelleanderin/keydr/stolenDance_milkyChance.ogg',
       pattern:  pattern_maker(286, 0.6)
     }
   ])

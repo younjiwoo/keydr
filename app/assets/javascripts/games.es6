@@ -110,7 +110,10 @@ $( document ).ready( function() {
   });
   $('audio').get(0).addEventListener("ended", gameCompleted);
 
-  $('.play-again-btn, .exit-btn').click( function() {
+  $('.play-again-btn').click( function() {
+    location.reload()
+  })
+  $('.exit-btn').click( function() {
     window.location.replace('/')
   })
 
