@@ -18,7 +18,7 @@ You can simply download the app, run `bundle install`, run the `rails server`, a
 Here is the [Google Doc](https://docs.google.com/spreadsheets/d/1_IuCUMA9GzS1Uf2ccIaUCIwLwk-VfAWMDx5Zg5B4wsA/edit?usp=sharing).
 
 #### Screenshots
-![Alt text](/assets/ScreenShot1.png?raw=true "Optional Title")
+![game page](https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot1.png)
 
 #### Upcoming features
 1. Upload song files to AWS for production release.
