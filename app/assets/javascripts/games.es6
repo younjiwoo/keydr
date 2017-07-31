@@ -12,42 +12,28 @@ $( document ).ready( function() {
 
   // Helper Methods.
   function ceilToTopOfElem(el) {
-    return el.offset().top
+    return el.offset().top - (GAMEBOARD.offset().top + parseInt(GAMEBOARD.css('borderWidth')))
   }
   function ceilToBtmOfElem(el) {
     return ceilToTopOfElem(el) + el.height()
   }
   function isOverlapping(el) {
-    return ceilToBtmOfElem(el) > ceilToTopOfElem(BAR) && ceilToTopOfElem(el) < ceilToBtmOfElem(BAR)
+    return ceilToBtmOfElem(el) > ceilToTopOfElem(BAR) &&
+           ceilToTopOfElem(el) < ceilToBtmOfElem(BAR)
   }
-  function generateNotes(sec, column) {
-    if ( GAMEBOARD.height() === 300 ) {
-      setTimeout( function() {
-          const NEW_NOTE = $('<div class="note active" />')
-          $( column ).append(NEW_NOTE)
-          NEW_NOTE.animate({
-            top: GAMEBOARD.height() - 30
-          }, 2700, 'linear', function() {
-            $( this ).removeClass('active')
-            $( this ).animate({
-              top: GAMEBOARD.height()
-            }, 300, 'linear')
-          })
-      }, sec * 1000)
-    } else {
-      setTimeout( function() {
-          const NEW_NOTE = $('<div class="note active" />')
-          $( column ).append(NEW_NOTE)
-          NEW_NOTE.animate({
-            top: GAMEBOARD.height() - 70
-          }, 4300, 'linear', function() {
-            $( this ).removeClass('active')
-            $( this ).animate({
-              top: GAMEBOARD.height()
-            }, 700, 'linear')
-          })
-      }, sec * 1000)
-    }
+  function generateNotes(sec, column, gameboardHeight) {
+    setTimeout( function() {
+        const NEW_NOTE = $('<div class="note active" />')
+        $( column ).append(NEW_NOTE)
+        NEW_NOTE.animate({
+          top: ceilToBtmOfElem(BAR)
+        }, ceilToBtmOfElem(BAR) * 10, 'linear', function() {
+          $( this ).removeClass('active')
+          $( this ).animate({
+            top: gameboardHeight
+          }, (gameboardHeight - ceilToBtmOfElem(BAR)) * 10, 'linear')
+        })
+    }, sec * 1000)
   }
   function isGameOver() {
     return parseInt( score.html() ) < 10
@@ -75,14 +61,15 @@ $( document ).ready( function() {
     score.html(100)
     $('.login-signup').hide()
     $('audio').trigger('play')
+    let gameboardHeight = GAMEBOARD.height()
     let pattern = JSON.parse( $('.data-pattern').attr('data-pattern') )
-    pattern.d.forEach( function(sec) { generateNotes(sec, '.column-d') })
+    pattern.d.forEach( function(sec) { generateNotes(sec, '.column-d', gameboardHeight) })
     handleKeypress('.column-d', 100)
-    pattern.f.forEach( function(sec) { generateNotes(sec, '.column-f')})
+    pattern.f.forEach( function(sec) { generateNotes(sec, '.column-f', gameboardHeight)})
     handleKeypress('.column-f', 102)
-    pattern.j.forEach( function(sec) { generateNotes(sec, '.column-j')})
+    pattern.j.forEach( function(sec) { generateNotes(sec, '.column-j', gameboardHeight)})
     handleKeypress('.column-j', 106)
-    pattern.k.forEach( function(sec) { generateNotes(sec, '.column-k')})
+    pattern.k.forEach( function(sec) { generateNotes(sec, '.column-k', gameboardHeight)})
     handleKeypress('.column-k', 107)
   }
   function stopAudio() {
