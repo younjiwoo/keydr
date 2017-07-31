@@ -142,7 +142,7 @@ body {
   background-color: white;
   position: absolute;
   top: 250px;
-  opacity: .5;
+  opacity: .4;
   z-index: 10;
 }
 .note {
@@ -193,10 +193,10 @@ audio {
   padding: 0 30px;
 }
 @keyframes pulse_animation {
-	0% { transform: scale(1); }
+	0% { transform: scale(1);  }
 	30% { transform: scale(1.2); }
 	40% { transform: scale(1.3); }
-	50% { transform: scale(1.4); }
+	50% { transform: scale(1.4); background-color: yellow; }
 	60% { transform: scale(1.3); }
 	70% { transform: scale(1.2); }
 	80% { transform: scale(1.1); }
@@ -204,6 +204,21 @@ audio {
 }
 .pulse {
 	animation-name: pulse_animation;
+	animation-duration: 150ms;
+	animation-timing-function: linear;
+}
+@keyframes flash_animation {
+	0% { transform: scale(1);  }
+	30% { transform: scale(1.2); }
+	40% { transform: scale(1.4); }
+	50% { transform: scale(1.5); }
+	60% { transform: scale(1.4); }
+	70% { transform: scale(1.2); }
+	80% { transform: scale(1.1); }
+	100% { transform: scale(1); }
+}
+.flash {
+	animation-name: flash_animation;
 	animation-duration: 150ms;
 	animation-timing-function: linear;
 }
@@ -372,6 +387,9 @@ audio {
   }
   .top3Scores td {
     font-size: 1em;
+  }
+  .top3Scores th {
+    color: black;
   }
   .score-board {
     width: 100px;

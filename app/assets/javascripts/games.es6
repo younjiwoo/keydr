@@ -3,12 +3,33 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $( document ).ready( function() {
+
   const BAR = $('.bar')
   const GAMEBOARD = $('.game-board')
   let scoreBoard = $('.score-board')
   let score = $('.score')
   $('.gameOverContainer').hide()
   $('.gameCompleted').hide()
+
+  score[0].addEventListener('webkitAnimationEnd', function() {
+    score.removeClass('flash plus minus')
+  });
+  $('audio').get(0).addEventListener("ended", gameCompleted);
+  $('.start-btn').mouseenter(function() {
+    $( this ).val('Start')
+  }).mouseout(function() {
+    $( this ).val('Ready?')
+  }).click( function() {
+    $('.readyContainer').hide(1000)
+    setTimeout( startGame, 1000 )
+  })
+  $('.play-again-btn').click( function() {
+    location.reload()
+  })
+  $('.exit-btn').click( function() {
+    window.location.replace('/')
+  })
+
 
   // Helper Methods.
   function ceilToTopOfElem(el) {
@@ -45,11 +66,11 @@ $( document ).ready( function() {
         if ( noteAboveBar.length && !isGameOver() ) {
           if ( isOverlapping(noteAboveBar) ) {
             score.html( parseInt(score.html()) + 10 )
-            score.addClass('pulse plus')
+            score.addClass('flash plus')
             noteAboveBar.addClass('pulse')
           } else {
             score.html( parseInt(score.html()) - 10 )
-            score.addClass('pulse minus')
+            score.addClass('flash minus')
           }
         } else if ( isGameOver() ) {
           stopGame()
@@ -106,29 +127,5 @@ $( document ).ready( function() {
                               </tr>`)
     })
   }
-
-  score[0].addEventListener('webkitAnimationEnd', function() {
-    score.removeClass('pulse plus minus')
-  });
-  $('audio').get(0).addEventListener("ended", gameCompleted);
-
-  $('.play-again-btn').click( function() {
-    location.reload()
-  })
-  $('.exit-btn').click( function() {
-    window.location.replace('/')
-  })
-
-  $('.start-btn')
-    .mouseenter(function() {
-      $( this ).val('Start')
-    })
-    .mouseout(function() {
-      $( this ).val('Ready?')
-    })
-    .click( function() {
-      $('.readyContainer').hide(1000)
-      setTimeout( startGame, 1000 )
-    })
 
 })
