@@ -28,3 +28,4 @@ Here is the [Google Doc](https://docs.google.com/spreadsheets/d/1_IuCUMA9GzS1Uf2
 5. Improve note pattern generation strategy. Currently, the generation logic is random and doesn't take into account the actual beats / melody of the song.
 6. Add sound effects correct / incorrect keystrokes.
 7. User can login with their Twitter or Facebook id and password (Omniauth).
+8. Add more levels -- very easy, very hard, guru, and etc.
