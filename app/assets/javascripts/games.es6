@@ -4,6 +4,7 @@
 
 $( document ).ready( function() {
   const BAR = $('.bar')
+  const GAMEBOARD = $('.game-board')
   let scoreBoard = $('.score-board')
   let score = $('.score')
   $('.gameOverContainer').hide()
@@ -20,18 +21,33 @@ $( document ).ready( function() {
     return ceilToBtmOfElem(el) > ceilToTopOfElem(BAR) && ceilToTopOfElem(el) < ceilToBtmOfElem(BAR)
   }
   function generateNotes(sec, column) {
-    setTimeout( function() {
-        const NEW_NOTE = $('<div class="note active" />')
-        $( column ).append(NEW_NOTE)
-        NEW_NOTE.animate({
-          top: $('.game-board').height() - 70
-        }, 4300, 'linear', function() {
-          $( this ).removeClass('active')
-          $( this ).animate({
-            top: $('.game-board').height()
-          }, 700, 'linear')
-        })
-    }, sec * 1000)
+    if ( GAMEBOARD.height() === 300 ) {
+      setTimeout( function() {
+          const NEW_NOTE = $('<div class="note active" />')
+          $( column ).append(NEW_NOTE)
+          NEW_NOTE.animate({
+            top: GAMEBOARD.height() - 30
+          }, 2700, 'linear', function() {
+            $( this ).removeClass('active')
+            $( this ).animate({
+              top: GAMEBOARD.height()
+            }, 300, 'linear')
+          })
+      }, sec * 1000)
+    } else {
+      setTimeout( function() {
+          const NEW_NOTE = $('<div class="note active" />')
+          $( column ).append(NEW_NOTE)
+          NEW_NOTE.animate({
+            top: GAMEBOARD.height() - 70
+          }, 4300, 'linear', function() {
+            $( this ).removeClass('active')
+            $( this ).animate({
+              top: GAMEBOARD.height()
+            }, 700, 'linear')
+          })
+      }, sec * 1000)
+    }
   }
   function isGameOver() {
     return parseInt( score.html() ) < 10
@@ -42,12 +58,10 @@ $( document ).ready( function() {
         let noteAboveBar = $(`${column} .active`).first()
         if ( noteAboveBar.length && !isGameOver() ) {
           if ( isOverlapping(noteAboveBar) ) {
-            console.log('got it');
             score.html( parseInt(score.html()) + 10 )
             score.addClass('pulse plus')
             noteAboveBar.addClass('pulse')
           } else {
-            console.log('missed it');
             score.html( parseInt(score.html()) - 10 )
             score.addClass('pulse minus')
           }
