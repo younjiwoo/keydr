@@ -18,9 +18,9 @@ You can simply download the app, run `bundle install`, run the `rails server`, a
 Here is the [Google Doc](https://docs.google.com/spreadsheets/d/1_IuCUMA9GzS1Uf2ccIaUCIwLwk-VfAWMDx5Zg5B4wsA/edit?usp=sharing).
 
 #### Screenshots
-<img src="https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot1.png" max-width="600px">
-<img src="https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot2.png" max-width="600px">
-<img src="https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot3.png" max-width="600px">
+<img src="https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot1.png" max-width="60%">
+<img src="https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot2.png" max-width="60%">
+<img src="https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot3.png" max-width="60%">
 
 ![game page](https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot1.png)
 ![game completed screen](https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot2.png)
