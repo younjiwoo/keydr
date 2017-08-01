@@ -22,10 +22,6 @@ Here is the [Google Doc](https://docs.google.com/spreadsheets/d/1_IuCUMA9GzS1Uf2
 <img src="https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot2.png" max-width="60%">
 <img src="https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot3.png" max-width="60%">
 
-![game page](https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot1.png)
-![game completed screen](https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot2.png)
-![game over screen](https://github.com/younjiwoo/keydr/blob/master/app/assets/images/ScreenShot3.png)
-
 #### Upcoming features
 1. Upload song files to AWS for production release.
 2. User loses points when notes are missed.
