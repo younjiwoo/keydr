@@ -84,14 +84,13 @@ $( document ).ready( function() {
     $('audio').trigger('play')
     let gameboardHeight = GAMEBOARD.height()
     let pattern = JSON.parse( $('.data-pattern').attr('data-pattern') )
-    pattern.d.forEach( function(sec) { generateNotes(sec, '.column-d', gameboardHeight) })
-    handleKeypress('.column-d', 100)
-    pattern.f.forEach( function(sec) { generateNotes(sec, '.column-f', gameboardHeight)})
-    handleKeypress('.column-f', 102)
-    pattern.j.forEach( function(sec) { generateNotes(sec, '.column-j', gameboardHeight)})
-    handleKeypress('.column-j', 106)
-    pattern.k.forEach( function(sec) { generateNotes(sec, '.column-k', gameboardHeight)})
-    handleKeypress('.column-k', 107)
+    let letters = {'d': 100, 'f': 102, 'j': 106, 'k': 107}
+    for (let letter in letters) {
+      pattern[letter].forEach(function(sec) {
+        generateNotes(sec, `.column-${letter}`, gameboardHeight)
+      })
+      handleKeypress(`.column-${letter}`, letters[letter])
+    }
   }
   function stopAudio() {
     $('audio').get(0).pause()
