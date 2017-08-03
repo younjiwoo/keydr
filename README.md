@@ -12,7 +12,11 @@ Ruby-on-Rails back-end with Postgresql database, HTML, CSS, JavaScript and jQuer
 ( Ruby version 2.4.0 | Ruby on Rails version: 5.1.2 )
 
 #### Installation
-You can simply download the app, run `bundle install`, run the `rails server`, and then access to [http://localhost:3000](http://localhost:3000).
+1. Download the app.
+2. Run `rails db:create db:migrate db:seed`
+3. Run `bundle install`
+4. Run `rails server`
+5. Access to [http://localhost:3000](http://localhost:3000).
 
 #### Link to my user stories, ERD(Entity Relationship Diagrams), and Milestones.
 Here is the [Google Doc](https://docs.google.com/spreadsheets/d/1_IuCUMA9GzS1Uf2ccIaUCIwLwk-VfAWMDx5Zg5B4wsA/edit?usp=sharing).
