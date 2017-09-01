@@ -152,7 +152,7 @@ body {
   position: absolute;
 }
 audio {
-  visibility: hidden
+  visibility: hidden;
 }
 .gameOverContainer {
   width: 100%;
@@ -193,34 +193,67 @@ audio {
   padding: 0 30px;
 }
 @keyframes pulse_animation {
-	0% { transform: scale(1);  }
-	30% { transform: scale(1.2); }
-	40% { transform: scale(1.3); }
-	50% { transform: scale(1.4); background-color: yellow; }
-	60% { transform: scale(1.3); }
-	70% { transform: scale(1.2); }
-	80% { transform: scale(1.1); }
-	100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(1.3);
+  }
+  50% {
+    transform: scale(1.4);
+    background-color: yellow;
+  }
+  60% {
+    transform: scale(1.3);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 .pulse {
-	animation-name: pulse_animation;
-	animation-duration: 150ms;
-	animation-timing-function: linear;
+  animation-name: pulse_animation;
+  animation-duration: 150ms;
+  animation-timing-function: linear;
 }
 @keyframes flash_animation {
-	0% { transform: scale(1);  }
-	30% { transform: scale(1.2); }
-	40% { transform: scale(1.4); }
-	50% { transform: scale(1.5); }
-	60% { transform: scale(1.4); }
-	70% { transform: scale(1.2); }
-	80% { transform: scale(1.1); }
-	100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(1.4);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  60% {
+    transform: scale(1.4);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 .flash {
-	animation-name: flash_animation;
-	animation-duration: 150ms;
-	animation-timing-function: linear;
+  animation-name: flash_animation;
+  animation-duration: 150ms;
+  animation-timing-function: linear;
 }
 .score.plus {
   color: #42a1f4;
@@ -325,13 +358,13 @@ audio {
 .fa {
   color: white;
 }
-.fa.fa-user, .fa.fa-smile-o {
+.fa.fa-user,
+.fa.fa-smile-o {
   color: #999;
 }
 .red {
   color: red;
 }
-
 
 @media screen and (max-width: 1700px) and (min-width: 560px) {
   .game-board {
